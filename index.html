@@ -14,7 +14,7 @@
         <div id="imgdiv">
             <img id="img" src="" />
         </div>
-        <p>It is currently <span id="temp"> </span>F with <span id="desc"> </span></p>
+        <p>It is currently <span id="temp"> </span>C with <span id="desc"> </span></p>
         <p>Wind: <span id="wind"></span></p>
     </div>
 </body>
@@ -35,32 +35,29 @@
     function success(position) {
         Geo.lat = position.coords.latitude;
         Geo.lng = position.coords.longitude;
+        var key = '40dbdf6113225894';
+        var Weather = "http://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
+        console.log(Weather);
+
+        $.ajax({
+            url: Weather,
+            dataType: "jsonp",
+            success: function(data) {
+                var location = data['location']['city'];
+                var temp = data['current_observation']['temp_c'];
+                var img = data['current_observation']['icon_url'];
+                var desc = data['current_observation']['weather'];
+                var wind = data['current_observation']['wind_string'];
+
+                $('#location').html(location);
+                $('#temp').html(temp);
+                $('#desc').html(desc);
+                $('#wind').html(wind);
+
+                $('#img').attr('src', img);
+            }
+        });
     }
-
-
-    var key = '40dbdf6113225894';
-    var Weather = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
-    $.ajax({
-        url: Weather,
-        dataType: "jsonp",
-        success: function(data) {
-            // get all the information
-        }
-    });
-
-    var location = data['location']['city'];
-    var temp = data['current_observation']['temp_f'];
-    var img = data['current_observation']['icon_url'];
-    var desc = data['current_observation']['weather'];
-    var wind = data['current_observation']['wind_string'];
-
-    //setting the spans to the correct parameters
-    $('#location').html(location);
-    $('#temp').html(temp);
-    $('#desc').html(desc);
-    $('#wind').html(wind);
-    //filling the image src attribute with the image url
-    $('#img').attr('src', img);
 </script>
 
 
