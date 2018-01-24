@@ -86,37 +86,8 @@ $(function() {
                 url: wdata,
                 dataType: "jsonp",
                 success: function(data) {
-                    // $.each(data, function(i, item) {
-                    // console.log(data.location.city);
-
-                    // });
-                    // var location = data['location']['city'];
-                    // var temp = data['current_observation']['temp_c'];
-                    // var feels = data['current_observation']['feelslike_c'];
-                    // var weather = data['current_observation']['weather'];
-                    // var dateTime = data['current_observation']['observation_time'];
-                    // var li = dateTime.replace(/last updated on|est| ist/gi, '');
-                    //
-                    // var latitude = data['current_observation']['observation_location']['latitude'];
-                    // var longitude = data['current_observation']['observation_location']['longitude'];
-                    // var elevation = data['current_observation']['observation_location']['elevation'];
-                    //
-                    // var humidity = data['current_observation']['relative_humidity'];
-                    // var dewp = data['current_observation']['dewpoint_c'];
-                    // var pressure = data['current_observation']['pressure_mb'];
-                    // var uv = data['current_observation']['UV'];
-                    // var visibility = data['current_observation']['visibility_km'];
-                    //
-                    // var winddir = data['current_observation']['wind_dir'];
-                    // var winddeg = data['current_observation']['wind_degrees'];
-                    // var windspk = data['current_observation']['wind_kph'];
-                    // var windgustk = data['current_observation']['wind_gust_kph'];
-                    //
-                    // var tesst = data['forecast']['txt_forecast']['forecastday[0]']['pop'];
-                    // console.log(tesst);
                     var date = data.current_observation.observation_time.replace(/last updated on|est| ist/gi, '');
 
-                    var wind = data.current_observation.wind_string.replace(/From the/gi, '');
 
                     $('.city-name').html(data.location.city + ', ' + data.location.state + ', ' + data.location.country_name);
                     $('.temp').html(Math.floor(data.current_observation.temp_c) + '°C');
@@ -134,11 +105,27 @@ $(function() {
                     $('.uv-data').html(data.current_observation.UV);
                     $('.visi-data').html(data.current_observation.visibility_km + ' km');
 
-                    $('.wind-data').html(wind);
                     $('.winddir-data').html(data.current_observation.wind_dir);
                     $('.winddeg-data').html(data.current_observation.wind_degrees);
                     $('.windspk-data').html(data.current_observation.wind_kph + ' kph');
                     $('.windgustk-data').html(data.current_observation.wind_gust_kph + ' kph');
+
+                    $('.day-1').html(data.forecast.txt_forecast.forecastday[0].title);
+                    $('.night-1').html(data.forecast.txt_forecast.forecastday[1].title);
+                    $('.day-2').html(data.forecast.txt_forecast.forecastday[2].title);
+                    $('.night-2').html(data.forecast.txt_forecast.forecastday[3].title);
+
+                    $('.forecast-d-1').html(data.forecast.txt_forecast.forecastday[0].fcttext_metric);
+                    $('.forecast-n-1').html(data.forecast.txt_forecast.forecastday[1].fcttext_metric);
+                    $('.forecast-d-2').html(data.forecast.txt_forecast.forecastday[2].fcttext_metric);
+                    $('.forecast-n-2').html(data.forecast.txt_forecast.forecastday[3].fcttext_metric);
+
+                    $('.pop-d-1').html(data.forecast.txt_forecast.forecastday[0].pop + '%');
+                    $('.pop-n-1').html(data.forecast.txt_forecast.forecastday[1].pop + '%');
+                    $('.pop-d-2').html(data.forecast.txt_forecast.forecastday[2].pop + '%');
+                    $('.pop-n-2').html(data.forecast.txt_forecast.forecastday[3].pop + '%');
+                    // $('.day-3').html(data.forecast.txt_forecast.forecastday[2].title);
+                    // $('.day-4').html(data.forecast.txt_forecast.forecastday[3].title);
 
                     // var icondummy = 'assets/weather-icons/' + weather + '.png';
 

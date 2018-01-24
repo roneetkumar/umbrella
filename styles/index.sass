@@ -124,7 +124,7 @@ a
     .d-card
         width: 100%
         max-width: 280px
-        height: 190px
+        min-height: 190px
         border-radius: 2px
         background: #fff
         padding: 10px
@@ -180,14 +180,17 @@ a
         padding: 22px
         h1.title
             font-size: 14px
-            margin-bottom: 16px
+            margin-bottom: 10px
             display: inline-block
-        h1.property,h1.value
+        h1.property,.value
             font-size: 14px
             font-weight: 500
             color: rgba(#000,0.4)
             margin: 2px 0
             display: inline-block
-        h1.value
+        .value
             float: right
             color: #000
+        hr
+            margin: 16px 0
+            border: 0.5px solid rgba(0,0,0,0.2)

@@ -9,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#fff" />
     <link rel="manifest" href="functions/manifest.json">
-    <link rel="stylesheet" href="styles/index.min.css">
     <script src="functions/jquery.min.js"></script>
     <script src="functions/index.js"></script>
+    <link rel="stylesheet" href="styles/index.min.css">
     <link href="assets/favicon.ico" rel="icon" sizes="192x192">
     <link rel="shortcut icon" href="assets/favicon.ico">
     <link rel="apple-touch-icon" href="assets/favicon.ico">
@@ -20,7 +20,7 @@
 <body>
     <!-- -------------------------data-input-page-------------------- -->
     <div class="input-page-wrapper">
-        <h1 class="app-title">Umbrella</h1>
+        <h1 class="app-title">Umbrella - Weather App</h1>
         <img src="assets/512x512.png" alt="all-logo" class="app-logo">
         <div class="input-data-wrapper">
             <h1>Enter Location</h1>
@@ -91,8 +91,6 @@
         <div class="d-card third">
             <h1 class="title">Wind Details</h1>
             <br>
-            <h1 class="property">Wind :</h1>
-            <h1 class="value wind-data">0</h1><br>
             <h1 class="property">Direction :</h1>
             <h1 class="value winddir-data">0</h1><br>
             <h1 class="property">Degrees :</h1>
@@ -104,29 +102,39 @@
         </div>
         <!-- datacard -->
         <div class="d-card forth">
-            <h1 class="title">Current Details</h1>
+            <h1 class="title day-1">Day</h1>
             <br>
-            <h1 class="property">Humidity :</h1>
-            <h1 class="value ">0</h1><br>
-            <h1 class="property">Dew Point :</h1>
-            <h1 class="value">0</h1><br>
-            <h1 class="property">Pressure :</h1>
-            <h1 class="value">0</h1><br>
-            <h1 class="property">UV Index :</h1>
-            <h1 class="value">0</h1>
+            <h1 class="property">Forecast :</h1>
+            <span class="value forecast-d-1"></span><br>
+            <h1 class="property">Chance of Rain :</h1>
+            <span class="value pop-d-1"></span><br>
+
+            <hr>
+            <h1 class="title night-1">Night</h1>
+            <br>
+            <h1 class="property">Forecast :</h1>
+            <span class="value forecast-n-1"></span><br>
+            <h1 class="property">Chance of Rain :</h1>
+            <span class="value pop-n-1"></span><br>
+
         </div>
         <!-- datacard -->
         <div class="d-card fifth">
-            <h1 class="title">Current Details</h1>
+            <h1 class="title day-2">Day</h1>
             <br>
-            <h1 class="property">Humidity :</h1>
-            <h1 class="value">0</h1><br>
-            <h1 class="property">Dew Point :</h1>
-            <h1 class="value">0</h1><br>
-            <h1 class="property">Pressure :</h1>
-            <h1 class="value">0</h1><br>
-            <h1 class="property">UV Index :</h1>
-            <h1 class="value">0</h1>
+            <h1 class="property">Forecast :</h1>
+            <span class="value forecast-d-2"></span><br>
+            <h1 class="property">Chance of Rain :</h1>
+            <span class="value pop-d-2"></span><br>
+
+            <hr>
+            <h1 class="title night-2">Day</h1>
+            <br>
+            <h1 class="property">Forecast :</h1>
+            <span class="value forecast-n-2"></span><br>
+            <h1 class="property">Chance of Rain :</h1>
+            <span class="value pop-n-2"></span><br>
+
         </div>
     </div>
 </body>
