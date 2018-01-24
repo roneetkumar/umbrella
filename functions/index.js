@@ -20,7 +20,7 @@ $(function() {
             $('.weather-data-wrapper,.app-bar').show();
 
             var key = '40dbdf6113225894';
-            var Weather = "http://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + city + ".json";
+            var Weather = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + city + ".json";
             console.log(Weather);
 
             $.ajax({
@@ -65,7 +65,7 @@ $(function() {
             Geo.lng = position.coords.longitude;
             var key = '40dbdf6113225894';
 
-            var wdata = "http://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
+            var wdata = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
             console.log(wdata);
             $.ajax({
                 url: wdata,
@@ -93,7 +93,6 @@ $(function() {
                     $('.dew-data').html(dewp);
                     $('.pre-data').html(pressure);
                     $('.uv-data').html(uv);
-
 
                     $('img.w-icon').attr('src', 'assets/sun.png');
                 }
