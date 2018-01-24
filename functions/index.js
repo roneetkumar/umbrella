@@ -150,9 +150,9 @@ $(function() {
                     $('.windspk-data').html(windspk);
                     $('.windgustk-data').html(windgustk);
 
-                    var iconw = 'assets/weatherIcons/' + weather + '.png';
+                    var icondummy = 'assets/weatherIcons/' + weather + '.png';
 
-                    iconw.replace(/-/gi, '-');
+                    var iconw = icondummy.replace(/ /g, '-');
                     $('img.w-icon').attr('src', iconw);
 
                     console.log(iconw);
