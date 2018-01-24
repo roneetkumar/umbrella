@@ -67,7 +67,7 @@ $(function() {
                     $('.windspk-data').html(windspk);
                     $('.windgustk-data').html(windgustk);
 
-                    var icondummy = 'assets/weatherIcons/' + weather + '.png';
+                    var icondummy = 'assets/weather-icons/' + weather + '.png';
 
                     var iconw = icondummy.replace(/ /g, '-').toLowerCase();
 
@@ -146,7 +146,7 @@ $(function() {
                     $('.windspk-data').html(windspk);
                     $('.windgustk-data').html(windgustk);
 
-                    var icondummy = 'assets/weatherIcons/' + weather + '.png';
+                    var icondummy = 'assets/weather-icons/' + weather + '.png';
 
                     var iconw = icondummy.replace(/ /g, '-').toLowerCase();
                     $('img.w-icon').attr('src', iconw);
