@@ -1,6 +1,6 @@
 {
-  "name": "Chroma : Material Palette",
-  "short_name": "Chroma",
+  "name": "Umbrella : Weather App",
+  "short_name": "Umbrella",
   "icons": [{
       "src": "../assets/512x512.png",
       "sizes": "512x512",
