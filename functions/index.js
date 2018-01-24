@@ -1,16 +1,11 @@
 $(function() {
     $('.weather-data-wrapper,.app-bar').hide();
 
-    // $('button.sub-btn,button.find-location').on('click', function() {
-    //
-    // });
-
     $('svg.back-btn').on('click', function() {
         $('.input-page-wrapper').show();
         $('.weather-data-wrapper,.app-bar').hide();
         $('input.search').val('');
     });
-
 
     $('button.sub-btn').on('click', function() {
         if ($('input.search').val() != '') {
@@ -74,10 +69,10 @@ $(function() {
 
                     var icondummy = 'assets/weatherIcons/' + weather + '.png';
 
-                    var iconw = icondummy.replace(/ /g, '-');
+                    var iconw = icondummy.replace(/ /g, '-').toLowerCase();
+
                     $('img.w-icon').attr('src', iconw);
 
-                    console.log(iconw);
                 }
             });
         }
@@ -103,7 +98,7 @@ $(function() {
             var key = '40dbdf6113225894';
 
             var wdata = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
-            console.log(wdata);
+
             $.ajax({
                 url: wdata,
                 dataType: "jsonp",
@@ -153,10 +148,9 @@ $(function() {
 
                     var icondummy = 'assets/weatherIcons/' + weather + '.png';
 
-                    var iconw = icondummy.replace(/ /g, '-');
+                    var iconw = icondummy.replace(/ /g, '-').toLowerCase();
                     $('img.w-icon').attr('src', iconw);
 
-                    console.log(iconw);
                 }
             });
         }
