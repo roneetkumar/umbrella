@@ -1,0 +1,181 @@
+// -------------imports--------------------
+@import 'shadows','center-mixins'
+
+*
+    margin: 0
+    padding: 0
+    font-family: 'Roboto'
+    cursor: default
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+html,body
+    background-color: #474747
+
+a
+    text-decoration: none
+
+
+.input-page-wrapper
+    padding: 24px
+    // display: none
+    h1.app-title
+        font-size: 24px
+        color: white
+        text-align: center
+        font-weight: 400
+
+    img.app-logo
+        @include centered-x
+        margin: 80px 0
+        width: 150px
+        height: 150px
+
+    .input-data-wrapper
+        max-width: 320px
+        text-align: center
+        margin: 0 auto
+        h1
+            color: white
+            font-size: 20px
+            font-weight: 400
+            text-align: initial
+            margin-bottom: 8px
+        input.search
+            width: 100%
+            height: 48px
+            padding: 10px
+            box-sizing: border-box
+            box-shadow: $box-shadow-4dp
+            border: 0
+            border-radius: 2px
+            outline: 0
+            margin-bottom: 16px
+        button.sub-btn
+            width: 100%
+            height: 36px
+            border-radius: 50px
+            margin-bottom: 16px
+            background: #fff
+            border: 0
+            outline: 0
+            box-shadow: $box-shadow-4dp
+            font-size: 14px
+            font-weight: 500
+            color: #474747
+            &:hover
+                color: #03A9F4
+        span
+            color: white
+            font-size: 14px
+            font-weight: 500
+        button.find-location
+            width: 56px
+            height: 56px
+            background: #fff
+            border-radius: 50%
+            border: 0
+            outline: 0
+            margin-top: 16px
+            box-shadow: $box-shadow-4dp
+            path
+                fill: #474747
+            &:hover svg path
+                fill: #03A9F4
+
+        button:active
+            box-shadow: $box-shadow-2dp
+
+.app-bar
+    position: sticky
+    top: 0
+    width: 100%
+    height: 64px
+    background: #03A9F4
+    padding: 12px
+    box-sizing: border-box
+    box-shadow: $box-shadow-4dp
+    z-index: 1
+    svg.back-btn,svg.menu-btn
+        float: left
+        padding: 8px
+        border-radius: 50%
+        path
+            fill: #fff
+        &:hover
+            background: rgba(#fff,0.2)
+    svg.menu-btn
+        float: right
+    h1
+        font-size: 20px
+        color: #fff
+        font-weight: 400
+        display: inline-block
+        margin: 8px
+
+.weather-data-wrapper
+    width: 100%
+    max-width: 620px
+    text-align: center
+    margin: 20px auto
+    overflow: hidden
+    .d-card
+        width: 100%
+        max-width: 280px
+        height: 190px
+        border-radius: 2px
+        background: #fff
+        padding: 10px
+        margin: 10px
+        box-shadow: $box-shadow-3dp
+        box-sizing: border-box
+        display: inline-block
+        text-align: initial
+        overflow: hidden
+
+        .date-time
+            font-size: 13px
+            font-weight: 400
+            color: white
+        .group-1,.group-2
+            display: inline-block
+
+            .temp
+                font-size: 70px
+                font-weight: 300
+                color: white
+            .feels
+                font-size: 13px
+                font-weight: 400
+                color: white
+
+        .group-2
+            float: right
+            text-align: center
+            img
+                width: 80px
+                height: 80px
+            .weather
+                font-size: 13px
+                font-weight: 400
+                color: white
+    .second,.third
+        padding: 22px
+        h1.title
+            font-size: 14px
+            margin-bottom: 16px
+            display: inline-block
+        h1.property
+            font-size: 14px
+            font-weight: 500
+            color: rgba(#000,0.4)
+            margin: 2px 0
+            display: inline-block
+        h1.value
+            font-size: 14px
+            font-weight: 500
+            margin-right: 60px
+            float: right
+            display: inline-block

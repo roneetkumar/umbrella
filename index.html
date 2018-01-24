@@ -4,61 +4,83 @@
 <head>
     <meta charset="utf-8">
     <title>Weather APP</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>Chroma | Material Palette</title>
+    <meta name="author" content="Roneet Kumar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#fff" />
+    <link rel="manifest" href="functions/manifest.json">
+    <link rel="stylesheet" href="styles/index.min.css">
+    <script src="functions/jquery.min.js"></script>
+    <script src="functions/index.js"></script>
+    <!-- <link href="assets/favicon.ico" rel="icon" sizes="192x192">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.ico"> -->
 </head>
 
 <body>
-    <div id="forecast">
-        <h1>Weather at <span id="location"> </span></h1>
-        <div id="imgdiv">
-            <img id="img" src="" />
+    <!-- -------------------------data-input-page-------------------- -->
+    <div class="input-page-wrapper">
+        <h1 class="app-title">Umbrella</h1>
+        <img src="assets/app-logo.svg" alt="all-logo" class="app-logo">
+        <div class="input-data-wrapper">
+            <h1>Enter Location</h1>
+            <input class="search" placeholder="Search City" type="text">
+            <br>
+            <button class="sub-btn" type="button">SUBMIT</button>
+            <br>
+            <span>OR</span>
+            <br>
+            <button class="find-location">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path d="M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M3.05,13H1V11H3.05C3.5,6.83 6.83,3.5 11,3.05V1H13V3.05C17.17,3.5 20.5,6.83 20.95,11H23V13H20.95C20.5,17.17 17.17,20.5 13,20.95V23H11V20.95C6.83,20.5 3.5,17.17 3.05,13M12,5A7,7 0 0,0 5,12A7,7 0 0,0 12,19A7,7 0 0,0 19,12A7,7 0 0,0 12,5Z" />
+                </svg>
+            </button>
         </div>
-        <p>It is currently <span id="temp"> </span>C with <span id="desc"> </span></p>
-        <p>Wind: <span id="wind"></span></p>
+    </div>
+    <!-- --------------------------weather-data---------------------------- -->
+    <div class="app-bar">
+        <svg class="back-btn" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="#000000" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+        </svg>
+        <h1 class="city-name"></h1>
+        <svg class="menu-btn" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="#000000" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
+        </svg>
+    </div>
+
+    <div class="weather-data-wrapper">
+        <div class="d-card" style="background: none; box-shadow:none; padding: 0">
+            <h1 class="date-time"></h1>
+            <div class="group-1">
+                <h1 class="temp"></h1>
+                <h1 class="feels"></h1>
+            </div>
+            <div class="group-2">
+                <img class="w-icon"></img>
+                <h1 class="weather"></h1>
+            </div>
+
+        </div>
+        <br>
+        <div class="d-card second">
+            <h1 class="title">Current Details</h1>
+            <br>
+            <h1 class="property">Humidity :</h1>
+            <h1 class="value humi-data"></h1><br>
+            <h1 class="property">Dew Point :</h1>
+            <h1 class="value dew-data"></h1><br>
+            <h1 class="property">Pressure :</h1>
+            <h1 class="value pre-data"></h1><br>
+            <h1 class="property">UV Index :</h1>
+            <h1 class="value uv-data"></h1><br>
+            <h1 class="property">Chance of Rain :</h1>
+            <h1 class="value pop-data"></h1>
+        </div>
+        <div class="d-card"></div>
+        <div class="d-card"></div>
+        <div class="d-card"></div>
     </div>
 </body>
-
-<script type="text/javascript">
-    var Geo = {};
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error);
-    } else {
-        alert('Geolocation is not supported');
-    }
-
-
-    function error() {
-        alert("That's weird! We couldn't find you!");
-    }
-
-    function success(position) {
-        Geo.lat = position.coords.latitude;
-        Geo.lng = position.coords.longitude;
-        var key = '40dbdf6113225894';
-        var Weather = "http://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
-        console.log(Weather);
-
-        $.ajax({
-            url: Weather,
-            dataType: "jsonp",
-            success: function(data) {
-                var location = data['location']['city'];
-                var temp = data['current_observation']['temp_c'];
-                var img = data['current_observation']['icon_url'];
-                var desc = data['current_observation']['weather'];
-                var wind = data['current_observation']['wind_string'];
-
-                $('#location').html(location);
-                $('#temp').html(temp);
-                $('#desc').html(desc);
-                $('#wind').html(wind);
-
-                $('#img').attr('src', img);
-            }
-        });
-    }
-</script>
-
 
 </html>
