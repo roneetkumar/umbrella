@@ -39,30 +39,41 @@
         </div>
     </div>
     <!-- --------------------------weather-data---------------------------- -->
+    <!-- -----------appBar------------ -->
     <div class="app-bar">
         <svg class="back-btn" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="#000000" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
         </svg>
-        <h1 class="city-name"></h1>
+        <h1 class="city-name">City Name</h1>
         <svg class="menu-btn" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="#000000" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
         </svg>
     </div>
-
+    <!-- --------weatherData------------- -->
     <div class="weather-data-wrapper">
-        <div class="d-card" style="background: none; box-shadow:none; padding: 0">
-            <h1 class="date-time"></h1>
+        <!-- datacard -->
+        <div class="d-card" style="background: none; box-shadow:none; padding: 5px">
+            <h1 class="date-time">Month 00, 00:00 AM</h1>
             <div class="group-1">
-                <h1 class="temp"></h1>
-                <h1 class="feels"></h1>
+                <h1 class="temp">0°C</h1>
+                <h1 class="feels">Feels like 0°C</h1>
             </div>
             <div class="group-2">
                 <img class="w-icon"></img>
-                <h1 class="weather"></h1>
+                <h1 class="weather">Weather</h1>
+            </div>
+            <div class="group-3">
+                <h1 class="property">Latitude : </h1>
+                <h1 class="value lat-data">0</h1><br>
+                <h1 class="property">Longitude : </h1>
+                <h1 class="value long-data">0</h1><br>
+                <h1 class="property">Elevation : </h1>
+                <h1 class="value ele-data">0</h1>
             </div>
 
         </div>
         <br>
+        <!-- datacard -->
         <div class="d-card second">
             <h1 class="title">Current Details</h1>
             <br>
@@ -74,10 +85,48 @@
             <h1 class="value pre-data">0</h1><br>
             <h1 class="property">UV Index :</h1>
             <h1 class="value uv-data">0</h1><br>
+            <h1 class="property">Visibility :</h1>
+            <h1 class="value visi-data">0</h1>
         </div>
-        <div class="d-card"></div>
-        <div class="d-card"></div>
-        <div class="d-card"></div>
+        <!-- datacard -->
+        <div class="d-card third">
+            <h1 class="title">Wind Details</h1>
+            <br>
+            <h1 class="property">Direction :</h1>
+            <h1 class="value winddir-data">0</h1><br>
+            <h1 class="property">Degrees :</h1>
+            <h1 class="value winddeg-data">0</h1><br>
+            <h1 class="property">Speed :</h1>
+            <h1 class="value windspk-data">0</h1><br>
+            <h1 class="property">Gust :</h1>
+            <h1 class="value windgustk-data">0</h1>
+        </div>
+        <!-- datacard -->
+        <div class="d-card forth">
+            <h1 class="title">Current Details</h1>
+            <br>
+            <h1 class="property">Humidity :</h1>
+            <h1 class="value ">0</h1><br>
+            <h1 class="property">Dew Point :</h1>
+            <h1 class="value">0</h1><br>
+            <h1 class="property">Pressure :</h1>
+            <h1 class="value">0</h1><br>
+            <h1 class="property">UV Index :</h1>
+            <h1 class="value">0</h1>
+        </div>
+        <!-- datacard -->
+        <div class="d-card fifth">
+            <h1 class="title">Current Details</h1>
+            <br>
+            <h1 class="property">Humidity :</h1>
+            <h1 class="value">0</h1><br>
+            <h1 class="property">Dew Point :</h1>
+            <h1 class="value">0</h1><br>
+            <h1 class="property">Pressure :</h1>
+            <h1 class="value">0</h1><br>
+            <h1 class="property">UV Index :</h1>
+            <h1 class="value">0</h1>
+        </div>
     </div>
 </body>
 
