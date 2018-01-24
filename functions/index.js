@@ -22,56 +22,39 @@ $(function() {
                 url: Weather,
                 dataType: "jsonp",
                 success: function(data) {
-                    var location = data['location']['city'];
-                    var temp = data['current_observation']['temp_c'];
-                    var feels = data['current_observation']['feelslike_c'];
-                    var weather = data['current_observation']['weather'];
-                    var dateTime = data['current_observation']['observation_time'];
-                    var li = dateTime.replace(/last updated on|est| ist/gi, '');
 
-                    var latitude = data['current_observation']['observation_location']['latitude'];
-                    var longitude = data['current_observation']['observation_location']['longitude'];
-                    var elevation = data['current_observation']['observation_location']['elevation'];
+                    var date = data.current_observation.observation_time.replace(/last updated on|est| ist/gi, '');
 
-                    var humidity = data['current_observation']['relative_humidity'];
-                    var dewp = data['current_observation']['dewpoint_c'];
-                    var pressure = data['current_observation']['pressure_mb'];
-                    var uv = data['current_observation']['UV'];
-                    var visibility = data['current_observation']['visibility_km'];
+                    var wind = data.current_observation.wind_string.replace(/From the/gi, '');
 
-                    var windstr = data['current_observation']['wind_string'];
-                    var winddir = data['current_observation']['wind_dir'];
-                    var winddeg = data['current_observation']['wind_degrees'];
-                    var windspk = data['current_observation']['wind_kph'];
-                    var windgustk = data['current_observation']['wind_gust_kph'];
+                    $('.city-name').html(data.location.city + ', ' + data.location.state + ', ' + data.location.country_name);
+                    $('.temp').html(Math.floor(data.current_observation.temp_c) + '°C');
+                    $('.date-time').html(date);
+                    $('.weather').html(data.current_observation.weather);
+                    $('.feels').html('Feels like ' + data.current_observation.feelslike_c + '°C');
 
-                    $('.city-name').html(location);
-                    $('.temp').html(Math.floor(temp) + '°C');
-                    $('.date-time').html(li);
-                    $('.weather').html(weather);
-                    $('.feels').html('Feels like ' + feels + '°C');
+                    $('.lat-data').html(data.current_observation.display_location.latitude);
+                    $('.long-data').html(data.current_observation.display_location.longitude);
+                    $('.ele-data').html(data.current_observation.display_location.elevation + ' ft');
 
-                    $('.lat-data').html(latitude);
-                    $('.long-data').html(longitude);
-                    $('.ele-data').html(elevation);
+                    $('.humi-data').html(data.current_observation.relative_humidity);
+                    $('.dew-data').html(data.current_observation.dewpoint_c + ' C');
+                    $('.pre-data').html(data.current_observation.pressure_mb + ' mb');
+                    $('.uv-data').html(data.current_observation.UV);
+                    $('.visi-data').html(data.current_observation.visibility_km + ' km');
 
-                    $('.humi-data').html(humidity);
-                    $('.dew-data').html(dewp);
-                    $('.pre-data').html(pressure);
-                    $('.uv-data').html(uv);
-                    $('.visi-data').html(visibility);
+                    $('.wind-data').html(wind);
+                    $('.winddir-data').html(data.current_observation.wind_dir);
+                    $('.winddeg-data').html(data.current_observation.wind_degrees);
+                    $('.windspk-data').html(data.current_observation.wind_kph + ' kph');
+                    $('.windgustk-data').html(data.current_observation.wind_gust_kph + ' kph');
 
-                    $('.windstr-data').html(windstr);
-                    $('.winddir-data').html(winddir);
-                    $('.winddeg-data').html(winddeg);
-                    $('.windspk-data').html(windspk);
-                    $('.windgustk-data').html(windgustk);
+                    // var icondummy = 'assets/weather-icons/' + weather + '.png';
 
-                    var icondummy = 'assets/weather-icons/' + weather + '.png';
-
-                    var iconw = icondummy.replace(/ /g, '-').toLowerCase();
-
-                    $('img.w-icon').attr('src', iconw);
+                    // var iconw = icondummy.replace(/ /g, '-').toLowerCase();
+                    var icon = 'assets/weather-icons/' + data.current_observation.icon + '.png';
+                    $('img.w-icon').attr('src', icon);
+                    console.log(icon);
 
                 }
             });
@@ -103,54 +86,65 @@ $(function() {
                 url: wdata,
                 dataType: "jsonp",
                 success: function(data) {
-                    var location = data['location']['city'];
-                    var temp = data['current_observation']['temp_c'];
-                    var feels = data['current_observation']['feelslike_c'];
-                    var weather = data['current_observation']['weather'];
-                    var dateTime = data['current_observation']['observation_time'];
-                    var li = dateTime.replace(/last updated on|est| ist/gi, '');
+                    // $.each(data, function(i, item) {
+                    // console.log(data.location.city);
 
-                    var latitude = data['current_observation']['observation_location']['latitude'];
-                    var longitude = data['current_observation']['observation_location']['longitude'];
-                    var elevation = data['current_observation']['observation_location']['elevation'];
+                    // });
+                    // var location = data['location']['city'];
+                    // var temp = data['current_observation']['temp_c'];
+                    // var feels = data['current_observation']['feelslike_c'];
+                    // var weather = data['current_observation']['weather'];
+                    // var dateTime = data['current_observation']['observation_time'];
+                    // var li = dateTime.replace(/last updated on|est| ist/gi, '');
+                    //
+                    // var latitude = data['current_observation']['observation_location']['latitude'];
+                    // var longitude = data['current_observation']['observation_location']['longitude'];
+                    // var elevation = data['current_observation']['observation_location']['elevation'];
+                    //
+                    // var humidity = data['current_observation']['relative_humidity'];
+                    // var dewp = data['current_observation']['dewpoint_c'];
+                    // var pressure = data['current_observation']['pressure_mb'];
+                    // var uv = data['current_observation']['UV'];
+                    // var visibility = data['current_observation']['visibility_km'];
+                    //
+                    // var winddir = data['current_observation']['wind_dir'];
+                    // var winddeg = data['current_observation']['wind_degrees'];
+                    // var windspk = data['current_observation']['wind_kph'];
+                    // var windgustk = data['current_observation']['wind_gust_kph'];
+                    //
+                    // var tesst = data['forecast']['txt_forecast']['forecastday[0]']['pop'];
+                    // console.log(tesst);
+                    var date = data.current_observation.observation_time.replace(/last updated on|est| ist/gi, '');
 
-                    var humidity = data['current_observation']['relative_humidity'];
-                    var dewp = data['current_observation']['dewpoint_c'];
-                    var pressure = data['current_observation']['pressure_mb'];
-                    var uv = data['current_observation']['UV'];
-                    var visibility = data['current_observation']['visibility_km'];
+                    var wind = data.current_observation.wind_string.replace(/From the/gi, '');
 
-                    var winddir = data['current_observation']['wind_dir'];
-                    var winddeg = data['current_observation']['wind_degrees'];
-                    var windspk = data['current_observation']['wind_kph'];
-                    var windgustk = data['current_observation']['wind_gust_kph'];
+                    $('.city-name').html(data.location.city + ', ' + data.location.state + ', ' + data.location.country_name);
+                    $('.temp').html(Math.floor(data.current_observation.temp_c) + '°C');
+                    $('.date-time').html(date);
+                    $('.weather').html(data.current_observation.weather);
+                    $('.feels').html('Feels like ' + data.current_observation.feelslike_c + '°C');
 
-                    $('.city-name').html(location);
-                    $('.temp').html(Math.floor(temp) + '°C');
-                    $('.date-time').html(li);
-                    $('.weather').html(weather);
-                    $('.feels').html('Feels like ' + feels + '°C');
+                    $('.lat-data').html(data.current_observation.display_location.latitude);
+                    $('.long-data').html(data.current_observation.display_location.longitude);
+                    $('.ele-data').html(data.current_observation.display_location.elevation + ' ft');
 
-                    $('.lat-data').html(latitude);
-                    $('.long-data').html(longitude);
-                    $('.ele-data').html(elevation);
+                    $('.humi-data').html(data.current_observation.relative_humidity);
+                    $('.dew-data').html(data.current_observation.dewpoint_c + ' C');
+                    $('.pre-data').html(data.current_observation.pressure_mb + ' mb');
+                    $('.uv-data').html(data.current_observation.UV);
+                    $('.visi-data').html(data.current_observation.visibility_km + ' km');
 
-                    $('.humi-data').html(humidity);
-                    $('.dew-data').html(dewp);
-                    $('.pre-data').html(pressure);
-                    $('.uv-data').html(uv);
-                    $('.visi-data').html(visibility);
+                    $('.wind-data').html(wind);
+                    $('.winddir-data').html(data.current_observation.wind_dir);
+                    $('.winddeg-data').html(data.current_observation.wind_degrees);
+                    $('.windspk-data').html(data.current_observation.wind_kph + ' kph');
+                    $('.windgustk-data').html(data.current_observation.wind_gust_kph + ' kph');
 
-                    $('.winddir-data').html(winddir);
-                    $('.winddeg-data').html(winddeg);
-                    $('.windspk-data').html(windspk);
-                    $('.windgustk-data').html(windgustk);
+                    // var icondummy = 'assets/weather-icons/' + weather + '.png';
 
-                    var icondummy = 'assets/weather-icons/' + weather + '.png';
-
-                    var iconw = icondummy.replace(/ /g, '-').toLowerCase();
-                    $('img.w-icon').attr('src', iconw);
-
+                    // var iconw = icondummy.replace(/ /g, '-').toLowerCase();
+                    var icon = 'assets/weather-icons/' + data.current_observation.icon + '.png';
+                    $('img.w-icon').attr('src', icon);
                 }
             });
         }

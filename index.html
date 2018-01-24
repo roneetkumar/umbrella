@@ -24,7 +24,7 @@
         <img src="assets/512x512.png" alt="all-logo" class="app-logo">
         <div class="input-data-wrapper">
             <h1>Enter Location</h1>
-            <input class="search" placeholder="Search City" type="text">
+            <input class="search" placeholder="City, Country" type="text">
             <br>
             <button class="sub-btn" type="button">SUBMIT</button>
             <br>
@@ -58,7 +58,7 @@
                 <h1 class="feels">Feels like 0°C</h1>
             </div>
             <div class="group-2">
-                <img class="w-icon"></img>
+                <img class="w-icon" onerror="this.src='./assets/weather-icons/weather-none-available.png'"></img>
                 <h1 class="weather">Weather</h1>
             </div>
             <div class="group-3">
@@ -91,6 +91,8 @@
         <div class="d-card third">
             <h1 class="title">Wind Details</h1>
             <br>
+            <h1 class="property">Wind :</h1>
+            <h1 class="value wind-data">0</h1><br>
             <h1 class="property">Direction :</h1>
             <h1 class="value winddir-data">0</h1><br>
             <h1 class="property">Degrees :</h1>
