@@ -73,6 +73,7 @@ $(function() {
                     $('.windgustk-data').html(windgustk);
 
                     var iconw = 'assets/weatherIcons/' + weather + '.png';
+                    iconw.replace(/-/gi, '-');
                     $('img.w-icon').attr('src', iconw);
 
                     console.log(iconw);
@@ -150,6 +151,8 @@ $(function() {
                     $('.windgustk-data').html(windgustk);
 
                     var iconw = 'assets/weatherIcons/' + weather + '.png';
+
+                    iconw.replace(/-/gi, '-');
                     $('img.w-icon').attr('src', iconw);
 
                     console.log(iconw);
