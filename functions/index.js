@@ -1,5 +1,5 @@
 $(function() {
-    $('.weather-data-wrapper,.app-bar').hide();
+    // $('.weather-data-wrapper,.app-bar').hide();
 
     $('svg.back-btn').on('click', function() {
         $('.input-page-wrapper').show();
@@ -87,7 +87,6 @@ $(function() {
                 dataType: "jsonp",
                 success: function(data) {
                     var date = data.current_observation.observation_time.replace(/last updated on|est| ist/gi, '');
-
 
                     $('.city-name').html(data.location.city + ', ' + data.location.state + ', ' + data.location.country_name);
                     $('.temp').html(Math.floor(data.current_observation.temp_c) + '°C');
