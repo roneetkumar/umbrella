@@ -1,11 +1,4 @@
 $(function() {
-    // $('.weather-data-wrapper,.app-bar').hide();
-
-    $('svg.back-btn').on('click', function() {
-        $('.input-page-wrapper').show();
-        $('.weather-data-wrapper,.app-bar').hide();
-        $('input.search').val('');
-    });
 
     $('button.sub-btn').on('click', function() {
         if ($('input.search').val() != '') {
