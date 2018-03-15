@@ -1,17 +1,14 @@
 $(function() {
-   // $('.weather-data-wrapper,.app-bar').hide();		
- 		
-    $('svg.back-btn').on('click', function() {		
-        $('.input-page-wrapper').show();		
-        $('.weather-data-wrapper,.app-bar').hide();		
-        $('input.search').val('');		
+    // $('.weather-data-wrapper,.app-bar').hide();
+
+    $('svg.back-btn').on('click', function() {
+        $('.input-page-wrapper').show();
+        $('.weather-data-wrapper,.app-bar').hide();
+        $('input.search').val('');
     });
     $('button.sub-btn').on('click', function() {
         if ($('input.search').val() != '') {
             var city = $('input.search').val();
-
-            $('.input-page-wrapper').hide();
-            $('.weather-data-wrapper,.app-bar').show();
 
             var key = '40dbdf6113225894';
             var Weather = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + city + ".json";
@@ -55,14 +52,16 @@ $(function() {
                     $('img.w-icon').attr('src', icon);
                     console.log(icon);
 
+                    $('.input-page-wrapper').hide();
+                    $('.weather-data-wrapper,.app-bar').show();
+
                 }
             });
         }
     });
 
     $('button.find-location').on('click', function() {
-        $('.input-page-wrapper').hide();
-        $('.weather-data-wrapper,.app-bar').show();
+
         var Geo = {};
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(success, error);
@@ -75,6 +74,7 @@ $(function() {
         }
 
         function success(position) {
+
             Geo.lat = position.coords.latitude;
             Geo.lng = position.coords.longitude;
             var key = '40dbdf6113225894';
@@ -122,14 +122,12 @@ $(function() {
                     $('.pop-n-1').html(data.forecast.txt_forecast.forecastday[1].pop + '%');
                     $('.pop-d-2').html(data.forecast.txt_forecast.forecastday[2].pop + '%');
                     $('.pop-n-2').html(data.forecast.txt_forecast.forecastday[3].pop + '%');
-                    // $('.day-3').html(data.forecast.txt_forecast.forecastday[2].title);
-                    // $('.day-4').html(data.forecast.txt_forecast.forecastday[3].title);
 
-                    // var icondummy = 'assets/weather-icons/' + weather + '.png';
-
-                    // var iconw = icondummy.replace(/ /g, '-').toLowerCase();
                     var icon = 'assets/weather-icons/' + data.current_observation.icon + '.png';
                     $('img.w-icon').attr('src', icon);
+
+                    $('.input-page-wrapper').hide();
+                    $('.weather-data-wrapper,.app-bar').show();
                 }
             });
         }
