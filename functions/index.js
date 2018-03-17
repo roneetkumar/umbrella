@@ -45,12 +45,23 @@ $(function() {
                     $('.windspk-data').html(data.current_observation.wind_kph + ' kph');
                     $('.windgustk-data').html(data.current_observation.wind_gust_kph + ' kph');
 
-                    // var icondummy = 'assets/weather-icons/' + weather + '.png';
+                    $('.day-1').html(data.forecast.txt_forecast.forecastday[0].title);
+                    $('.night-1').html(data.forecast.txt_forecast.forecastday[1].title);
+                    $('.day-2').html(data.forecast.txt_forecast.forecastday[2].title);
+                    $('.night-2').html(data.forecast.txt_forecast.forecastday[3].title);
 
-                    // var iconw = icondummy.replace(/ /g, '-').toLowerCase();
+                    $('.forecast-d-1').html(data.forecast.txt_forecast.forecastday[0].fcttext_metric);
+                    $('.forecast-n-1').html(data.forecast.txt_forecast.forecastday[1].fcttext_metric);
+                    $('.forecast-d-2').html(data.forecast.txt_forecast.forecastday[2].fcttext_metric);
+                    $('.forecast-n-2').html(data.forecast.txt_forecast.forecastday[3].fcttext_metric);
+
+                    $('.pop-d-1').html(data.forecast.txt_forecast.forecastday[0].pop + '%');
+                    $('.pop-n-1').html(data.forecast.txt_forecast.forecastday[1].pop + '%');
+                    $('.pop-d-2').html(data.forecast.txt_forecast.forecastday[2].pop + '%');
+                    $('.pop-n-2').html(data.forecast.txt_forecast.forecastday[3].pop + '%');
+
                     var icon = 'assets/weather-icons/' + data.current_observation.icon + '.png';
                     $('img.w-icon').attr('src', icon);
-                    console.log(icon);
 
                     $('.input-page-wrapper').hide();
                     $('.weather-data-wrapper,.app-bar').show();
