@@ -12,7 +12,7 @@ $(function() {
 
             var key = '40dbdf6113225894';
             var Weather = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + city + ".json";
-            console.log(Weather);
+            // console.log(Weather);
 
             $.ajax({
                 url: Weather,
@@ -71,7 +71,7 @@ $(function() {
         }
     });
 
-    $('button.find-location').on('click', function() {
+    $('button.find-location, .menu-btn').on('click', function() {
 
         var Geo = {};
         if (navigator.geolocation) {
@@ -143,5 +143,7 @@ $(function() {
             });
         }
     });
+
+
 
 });

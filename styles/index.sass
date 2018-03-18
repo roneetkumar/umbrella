@@ -68,7 +68,7 @@ a
             height: 48px
             padding: 10px
             box-sizing: border-box
-            box-shadow: $box-shadow-3dp
+            box-shadow: $box-shadow-2dp
             border: 0
             border-radius: 2px
             outline: 0
@@ -78,7 +78,7 @@ a
                 background: #fff
                 border: 0
                 outline: 0
-                box-shadow: $box-shadow-3dp
+                box-shadow: $box-shadow-2dp
                 font-size: 14px
                 font-weight: 500
                 padding: 6px
@@ -90,10 +90,10 @@ a
                     padding: 8px
                     background: #2196F3
                     border-radius: 50%
+                    transition: box-shadow 0.12s ease-in-out
                     path
                         fill: white
                 &:hover svg
-                    background: #03A9F4
                     box-shadow: inset 0 0 8px rgba(0,0,0,0.6)
 
                 .btn-title
@@ -114,7 +114,7 @@ a
     top: 0
     width: 100%
     height: 64px
-    background: linear-gradient(to right, #FFA000, #FFC107)
+    background: linear-gradient(to top, #FF8F00, #FFC107)
     box-shadow: $box-shadow-3dp
     padding: 12px
     box-sizing: border-box
@@ -124,10 +124,11 @@ a
         float: left
         padding: 8px
         border-radius: 50%
+        transition: background 0.12s ease-in-out
         path
             fill: #fff
         &:hover
-            background: rgba(#fff,0.2)
+            background: rgba(#fff,0.3)
     svg.menu-btn
         float: right
     h1
@@ -147,7 +148,6 @@ a
     .d-card
         width: 100%
         max-width: 280px
-        min-height: 190px
         border-radius: 2px
         background: #fff
         padding: 10px
@@ -160,7 +160,7 @@ a
 
         .date-time
             font-size: 13px
-            font-weight: 400
+            font-weight: 500
             color: white
         .group-1,.group-2
             display: inline-block
@@ -170,7 +170,7 @@ a
                 color: white
             .feels
                 font-size: 13px
-                font-weight: 400
+                font-weight: 500
                 color: white
 
         .group-2
@@ -182,20 +182,20 @@ a
 
             .weather
                 font-size: 13px
-                font-weight: 400
+                font-weight: 500
                 color: white
         .group-3
             margin-top: 2px
             h1.property
                 font-size: 13px
-                font-weight: 400
+                font-weight: 500
                 color: #fff
                 margin: 4px 0
                 display: inline-block
             h1.value
                 font-size: 13px
                 color: #fff
-                font-weight: 400
+                font-weight: 500
                 display: inline-block
 
 
@@ -221,7 +221,7 @@ a
             margin: 2px 0
             display: inline-block
         .value
-            color: rgba(#000,0.4)
+            color: rgba(#000,0.5)
         hr
             margin: 16px 0
             border: 0.5px solid rgba(0,0,0,0.2)
