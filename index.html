@@ -155,11 +155,12 @@
 
 <script>
     if ('serviceWorker' in navigator) {
+        scope: '/umbrella/',
         navigator.serviceWorker
-            .register('service-worker.js')
-            .then(function() {
-                console.log("Service-Worker-Registered");
-            });
+        .register('service-worker.js')
+        .then(function() {
+            console.log("Service-Worker-Registered");
+        });
     }
 </script>
 
