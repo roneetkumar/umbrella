@@ -9,6 +9,6 @@
   "start_url": "../index.html?homescreen=1",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#40C4FF",
-  "theme_color": "#40C4FF"
+  "background_color": "#03a9f4",
+  "theme_color": "#03a9f4"
 }
