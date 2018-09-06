@@ -1,5 +1,4 @@
 $(function() {
-    // $('.weather-data-wrapper,.app-bar').hide();
 
     $('svg.back-btn').on('click', function() {
         $('.input-page-wrapper').show();
@@ -12,7 +11,6 @@ $(function() {
 
             var key = 'f9487aac49d53f81';
             var Weather = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + city + ".json";
-            // console.log(Weather);
 
             $.ajax({
                 url: Weather,
@@ -45,20 +43,17 @@ $(function() {
                     $('.windspk-data').html(data.current_observation.wind_kph + ' kph');
                     $('.windgustk-data').html(data.current_observation.wind_gust_kph + ' kph');
 
-                    $('.day-1').html(data.forecast.txt_forecast.forecastday[0].title);
-                    $('.night-1').html(data.forecast.txt_forecast.forecastday[1].title);
-                    $('.day-2').html(data.forecast.txt_forecast.forecastday[2].title);
-                    $('.night-2').html(data.forecast.txt_forecast.forecastday[3].title);
+                    $.each($('.forecastCard .title'), function(i, item) {
+                        $(this).html(data.forecast.txt_forecast.forecastday[i].title);
+                    });
 
-                    $('.forecast-d-1').html(data.forecast.txt_forecast.forecastday[0].fcttext_metric);
-                    $('.forecast-n-1').html(data.forecast.txt_forecast.forecastday[1].fcttext_metric);
-                    $('.forecast-d-2').html(data.forecast.txt_forecast.forecastday[2].fcttext_metric);
-                    $('.forecast-n-2').html(data.forecast.txt_forecast.forecastday[3].fcttext_metric);
+                    $.each($('.forecastCard span.forecast'), function(i, item) {
+                        $(this).html(data.forecast.txt_forecast.forecastday[i].fcttext_metric);
+                    });
 
-                    $('.pop-d-1').html(data.forecast.txt_forecast.forecastday[0].pop + '%');
-                    $('.pop-n-1').html(data.forecast.txt_forecast.forecastday[1].pop + '%');
-                    $('.pop-d-2').html(data.forecast.txt_forecast.forecastday[2].pop + '%');
-                    $('.pop-n-2').html(data.forecast.txt_forecast.forecastday[3].pop + '%');
+                    $.each($('.forecastCard span.chanceOfRain'), function(i, item) {
+                        $(this).html(data.forecast.txt_forecast.forecastday[i].pop + '%');
+                    });
 
                     var icon = 'assets/weather-icons/' + data.current_observation.icon + '.png';
                     $('img.w-icon').attr('src', icon);
@@ -119,20 +114,19 @@ $(function() {
                     $('.windspk-data').html(data.current_observation.wind_kph + ' kph');
                     $('.windgustk-data').html(data.current_observation.wind_gust_kph + ' kph');
 
-                    $('.day-1').html(data.forecast.txt_forecast.forecastday[0].title);
-                    $('.night-1').html(data.forecast.txt_forecast.forecastday[1].title);
-                    $('.day-2').html(data.forecast.txt_forecast.forecastday[2].title);
-                    $('.night-2').html(data.forecast.txt_forecast.forecastday[3].title);
 
-                    $('.forecast-d-1').html(data.forecast.txt_forecast.forecastday[0].fcttext_metric);
-                    $('.forecast-n-1').html(data.forecast.txt_forecast.forecastday[1].fcttext_metric);
-                    $('.forecast-d-2').html(data.forecast.txt_forecast.forecastday[2].fcttext_metric);
-                    $('.forecast-n-2').html(data.forecast.txt_forecast.forecastday[3].fcttext_metric);
 
-                    $('.pop-d-1').html(data.forecast.txt_forecast.forecastday[0].pop + '%');
-                    $('.pop-n-1').html(data.forecast.txt_forecast.forecastday[1].pop + '%');
-                    $('.pop-d-2').html(data.forecast.txt_forecast.forecastday[2].pop + '%');
-                    $('.pop-n-2').html(data.forecast.txt_forecast.forecastday[3].pop + '%');
+                    $.each($('.forecastCard .title'), function(i, item) {
+                        $(this).html(data.forecast.txt_forecast.forecastday[i].title);
+                    });
+
+                    $.each($('.forecastCard span.forecast'), function(i, item) {
+                        $(this).html(data.forecast.txt_forecast.forecastday[i].fcttext_metric);
+                    });
+
+                    $.each($('.forecastCard span.chanceOfRain'), function(i, item) {
+                        $(this).html(data.forecast.txt_forecast.forecastday[i].pop + '%');
+                    });
 
                     var icon = 'assets/weather-icons/' + data.current_observation.icon + '.png';
                     $('img.w-icon').attr('src', icon);
