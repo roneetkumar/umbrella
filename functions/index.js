@@ -10,7 +10,7 @@ $(function() {
         if ($('input.search').val() != '') {
             var city = $('input.search').val();
 
-            var key = '40dbdf6113225894';
+            var key = 'f9487aac49d53f81';
             var Weather = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + city + ".json";
             // console.log(Weather);
 
@@ -88,7 +88,7 @@ $(function() {
 
             Geo.lat = position.coords.latitude;
             Geo.lng = position.coords.longitude;
-            var key = '40dbdf6113225894';
+            var key = 'f9487aac49d53f81';
 
             var wdata = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
 
