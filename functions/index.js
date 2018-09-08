@@ -12,11 +12,13 @@ $(function() {
             var key = 'f9487aac49d53f81';
             var Weather = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + city + ".json";
 
+            $('button.sub-btn svg').addClass('btnClicked');
+
             $.ajax({
                 url: Weather,
                 dataType: "jsonp",
                 success: function(data) {
-
+                    $('button.sub-btn svg').removeClass('btnClicked');
                     var date = data.current_observation.observation_time.replace(/last updated on|est| ist/gi, '');
 
                     var wind = data.current_observation.wind_string.replace(/From the/gi, '');
@@ -60,7 +62,6 @@ $(function() {
 
                     $('.input-page-wrapper').hide();
                     $('.weather-data-wrapper,.app-bar').show();
-
                 }
             });
         }
@@ -71,16 +72,18 @@ $(function() {
         var Geo = {};
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(success, error);
+            $('button.find-location svg').addClass('btnClicked');
         } else {
             alert('Geolocation is not supported');
+            $('button.find-location svg').removeClass('btnClicked');
         }
 
         function error() {
+            $('button.find-location svg').removeClass('btnClicked');
             alert("That's weird! We couldn't find you!");
         }
 
         function success(position) {
-
             Geo.lat = position.coords.latitude;
             Geo.lng = position.coords.longitude;
             var key = 'f9487aac49d53f81';
@@ -91,6 +94,7 @@ $(function() {
                 url: wdata,
                 dataType: "jsonp",
                 success: function(data) {
+                    $('button.find-location svg').removeClass('btnClicked');
                     var date = data.current_observation.observation_time.replace(/last updated on|est| ist/gi, '');
 
                     $('.city-name').html(data.location.city + ', ' + data.location.state + ', ' + data.location.country_name);
@@ -137,7 +141,4 @@ $(function() {
             });
         }
     });
-
-
-
 });
