@@ -89,7 +89,7 @@ $(function() {
             var key = 'e449ce5899108221022a7b159186944e';
 
             // var wdata = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
-            var wdata = "api.openweathermap.org/data/2.5/forecast?lat=" + Geo.lat + "&lon=" + Geo.lng + "&appid=" + key;
+            var wdata = "https://api.openweathermap.org/data/2.5/forecast?lat=" + Geo.lat + "&lon=" + Geo.lng + "&appid=" + key;
             console.log(wdata);
 
             $.ajax({
