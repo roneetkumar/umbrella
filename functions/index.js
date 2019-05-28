@@ -11,7 +11,7 @@ $(function() {
             var city = $('input.search').val();
             var key = '895ff6619f3b61beff40fae1c36905d4';
             var weather = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric" + "&appid=" + key;
-            console.log(weather);
+            // console.log(weather);
             $('button.sub-btn svg').addClass('btnClicked');
 
             $.ajax({
@@ -53,7 +53,7 @@ $(function() {
             Geo.lng = position.coords.longitude;
             var key = '895ff6619f3b61beff40fae1c36905d4';
             var weather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + Geo.lat + "&lon=" + Geo.lng + "&units=metric" + "&appid=" + key;
-            console.log(weather);
+            // console.log(weather);
 
             $.ajax({
                 url: weather,
