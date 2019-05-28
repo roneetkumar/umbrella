@@ -34,17 +34,17 @@
             <div class="btn-wrapper">
                 <button class="sub-btn" type="button">
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                    <path fill="#000000" d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
-                </svg>
-                <span class="btn-title">SUBMIT</span>
+                        <path fill="#000000" d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+                    </svg>
+                    <span class="btn-title">SUBMIT</span>
                 </button>
 
                 <button class="find-location" style="float:right;">
                     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                         <path fill="#000000" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
                     </svg>
-                <span class="btn-title">FIND ME</span>
-            </button></div>
+                    <span class="btn-title">FIND ME</span>
+                </button></div>
 
         </div>
     </div>
@@ -61,97 +61,29 @@
     </div>
     <!-- --------weatherData------------- -->
     <div class="weather-data-wrapper" style="display:none">
-        <!-- datacard -->
-        <div class="data-card" style="background: none; box-shadow:none; padding: 5px">
-            <h1 class="date-time">Month 00, 00:00 AM</h1>
-            <div class="group-1">
-                <h1 class="temp">0°C</h1>
-                <h1 class="feels">Feels like 0°C</h1>
-            </div>
-            <div class="group-2">
-                <img class="w-icon" onerror="this.src='./assets/weather-icons/weather-none-available.png'"></img>
-                <h1 class="weather">Weather</h1>
-            </div>
-            <div class="group-3">
-                <h1 class="property">Latitude : </h1>
-                <h1 class="value lat-data">0</h1><br>
-                <h1 class="property">Longitude : </h1>
-                <h1 class="value long-data">0</h1><br>
-                <h1 class="property">Elevation : </h1>
-                <h1 class="value ele-data">0</h1>
-            </div>
+        <!-- <div class="card">
+            <div class="date-time"></div>
+            <div class="temp"></div>
+            <div class="temp-min"></div>
+            <div class="temp-max"></div>
+            <div class="pressure"></div>
+            <div class="sea-level"></div>
+            <div class="ground-level"></div>
+            <div class="humidity"></div>
+            <br>
+            <div class="wind-speed"></div>
+            <div class="wind-deg"></div>
+            <br>
+            <div class="clouds"></div>
 
-        </div>
-        <br>
-        <!-- datacard -->
-        <div class="data-card">
-            <h1 class="title">Current Details</h1>
-            <br>
-            <h1 class="property">Humidity :</h1>
-            <span class="value humi-data">0</span><br>
-            <h1 class="property">Dew Point :</h1>
-            <span class="value dew-data">0</span><br>
-            <h1 class="property">Pressure :</h1>
-            <span class="value pre-data">0</span><br>
-            <h1 class="property">UV Index :</h1>
-            <span class="value uv-data">0</span><br>
-            <h1 class="property">Visibility :</h1>
-            <span class="value visi-data">0</span>
-        </div>
-        <!-- datacard -->
-        <div class="data-card">
-            <h1 class="title">Wind Details</h1>
-            <br>
-            <h1 class="property">Direction :</h1>
-            <span class="value winddir-data">0</span><br>
-            <h1 class="property">Degrees :</h1>
-            <span class="value winddeg-data">0</span><br>
-            <h1 class="property">Speed :</h1>
-            <span class="value windspk-data">0</span><br>
-            <h1 class="property">Gust :</h1>
-            <span class="value windgustk-data">0</span>
-        </div>
-        <!-- datacard -->
-        <div class="data-card forecastCard">
-            <h1 class="title">Day</h1>
-            <br>
-            <h1 class="property">Chance of Rain :</h1>
-            <span class="value chanceOfRain"></span><br>
-            <h1 class="property">Forecast :</h1>
-            <span class="value forecast"></span>
-            <hr>
-            <h1 class="title">Night</h1>
-            <br>
-            <h1 class="property">Chance of Rain :</h1>
-            <span class="value chanceOfRain"></span><br>
-            <h1 class="property">Forecast :</h1>
-            <span class="value forecast"></span>
-
-        </div>
-        <!-- datacard -->
-        <div class="data-card forecastCard">
-            <h1 class="title">Day</h1>
-            <br>
-            <h1 class="property">Chance of Rain :</h1>
-            <span class="value chanceOfRain"></span><br>
-            <h1 class="property ">Forecast :</h1>
-            <span class="value forecast"></span><br>
-
-            <hr>
-            <h1 class="title">Night</h1>
-            <br>
-            <h1 class="property">Chance of Rain :</h1>
-            <span class="value chanceOfRain"></span><br>
-            <h1 class="property">Forecast :</h1>
-            <span class="value forecast"></span>
-        </div>
-    </div>
+        </div> -->
+        <!-- </div> -->
 </body>
 
 <script src="service-worker.js">
 </script>
 
-<script>
+<!-- <script>
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
             .register('service-worker.js')
@@ -159,6 +91,6 @@
                 console.log("Service-Worker-Registered");
             });
     }
-</script>
+</script> -->
 
 </html>

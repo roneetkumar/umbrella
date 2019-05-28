@@ -4,61 +4,27 @@ $(function() {
         $('.input-page-wrapper').show();
         $('.weather-data-wrapper,.app-bar').hide();
         $('input.search').val('');
+        $('.card').remove();
     });
     $('button.sub-btn').on('click', function() {
         if ($('input.search').val() != '') {
             var city = $('input.search').val();
-
-            var key = 'f9487aac49d53f81';
-            var Weather = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + city + ".json";
-            console.log(Weather);
+            var key = '895ff6619f3b61beff40fae1c36905d4';
+            var weather = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric" + "&appid=" + key;
+            console.log(weather);
             $('button.sub-btn svg').addClass('btnClicked');
 
             $.ajax({
-                url: Weather,
+                url: weather,
                 dataType: "jsonp",
                 success: function(data) {
                     $('button.sub-btn svg').removeClass('btnClicked');
-                    var date = data.current_observation.observation_time.replace(/last updated on|est| ist/gi, '');
-
-                    var wind = data.current_observation.wind_string.replace(/From the/gi, '');
-
-                    $('.city-name').html(data.location.city + ', ' + data.location.state + ', ' + data.location.country_name);
-                    $('.temp').html(Math.floor(data.current_observation.temp_c) + '°C');
-                    $('.date-time').html(date);
-                    $('.weather').html(data.current_observation.weather);
-                    $('.feels').html('Feels like ' + data.current_observation.feelslike_c + '°C');
-
-                    $('.lat-data').html(data.current_observation.display_location.latitude);
-                    $('.long-data').html(data.current_observation.display_location.longitude);
-                    $('.ele-data').html(data.current_observation.display_location.elevation + ' ft');
-
-                    $('.humi-data').html(data.current_observation.relative_humidity);
-                    $('.dew-data').html(data.current_observation.dewpoint_c + ' C');
-                    $('.pre-data').html(data.current_observation.pressure_mb + ' mb');
-                    $('.uv-data').html(data.current_observation.UV);
-                    $('.visi-data').html(data.current_observation.visibility_km + ' km');
-
-                    $('.wind-data').html(wind);
-                    $('.winddir-data').html(data.current_observation.wind_dir);
-                    $('.winddeg-data').html(data.current_observation.wind_degrees);
-                    $('.windspk-data').html(data.current_observation.wind_kph + ' kph');
-                    $('.windgustk-data').html(data.current_observation.wind_gust_kph + ' kph');
-
-                    $.each($('.forecastCard .title'), function(i, item) {
-                        $(this).html(data.forecast.txt_forecast.forecastday[i].title);
-                    });
-
-                    $.each($('.forecastCard span.forecast'), function(i, item) {
-                        $(this).html(data.forecast.txt_forecast.forecastday[i].fcttext_metric);
-                    });
-
-                    $.each($('.forecastCard span.chanceOfRain'), function(i, item) {
-                        $(this).html(data.forecast.txt_forecast.forecastday[i].pop + '%');
-                    });
-
-                    var icon = 'assets/weather-icons/' + data.current_observation.icon + '.png';
-                    $('img.w-icon').attr('src', icon);
+                    $('button.find-location svg').removeClass('btnClicked');
+                    $('.city-name').html(data.city.name + ", " + data.city.country);
+                    for (var i = 0; i < data.list.length; i++) {
+                        $('.weather-data-wrapper').append(
+                            '<div class="card"><div class="date-time"><h1>Date : ' + data.list[i].dt_txt.split(" ", 1) + '</h1><h1>Time : ' + data.list[i].dt_txt.split(" ", 2)[1] + '</h1><h1>Temp : ' + data.list[i].main.temp + ' C</h1><h1>Min : ' + data.list[i].main.temp_min + ' C</h1><h1>Max : ' + data.list[i].main.temp_max + ' C</h1><h1>Pressure : ' + data.list[i].main.pressure + '</h1><h1>Sea Level : ' + data.list[i].main.sea_level + '</h1><h1>Ground Level : ' + data.list[i].main.grnd_level + '</h1><h1>Humidity : ' + data.list[i].main.humidity + '</h1><h1>Wind Speed : ' + data.list[i].wind.speed + '</h1><h1>Wind Deg : ' + data.list[i].wind.deg + '</h1><h1>Clouds : ' + data.list[i].clouds.all + '%</h1></div></div>');
+                    }
 
                     $('.input-page-wrapper').hide();
                     $('.weather-data-wrapper,.app-bar').show();
@@ -68,7 +34,6 @@ $(function() {
     });
 
     $('button.find-location, .menu-btn').on('click', function() {
-
         var Geo = {};
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(success, error);
@@ -86,57 +51,20 @@ $(function() {
         function success(position) {
             Geo.lat = position.coords.latitude;
             Geo.lng = position.coords.longitude;
-            var key = 'e449ce5899108221022a7b159186944e';
-
-            // var wdata = "https://api.wunderground.com/api/" + key + "/forecast/geolookup/conditions/q/" + Geo.lat + "," + Geo.lng + ".json";
-            var wdata = "https://api.openweathermap.org/data/2.5/forecast?lat=" + Geo.lat + "&lon=" + Geo.lng + "&appid=" + key;
-            console.log(wdata);
+            var key = '895ff6619f3b61beff40fae1c36905d4';
+            var weather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + Geo.lat + "&lon=" + Geo.lng + "&units=metric" + "&appid=" + key;
+            console.log(weather);
 
             $.ajax({
-                url: wdata,
+                url: weather,
                 dataType: "jsonp",
                 success: function(data) {
                     $('button.find-location svg').removeClass('btnClicked');
-                    var date = data.current_observation.observation_time.replace(/last updated on|est| ist/gi, '');
-
-                    $('.city-name').html(data.city.name + ', ' + data.city.country);
-                    // $('.temp').html(Math.floor(data.current_observation.temp_c) + '°C');
-                    $('.date-time').html(list.dt_txt);
-                    console.log(list.dt_txt);
-                    // $('.weather').html(data.current_observation.weather);
-                    // $('.feels').html('Feels like ' + data.current_observation.feelslike_c + '°C');
-                    //
-                    // $('.lat-data').html(data.current_observation.display_location.latitude);
-                    // $('.long-data').html(data.current_observation.display_location.longitude);
-                    // $('.ele-data').html(data.current_observation.display_location.elevation + ' ft');
-                    //
-                    // $('.humi-data').html(data.current_observation.relative_humidity);
-                    // $('.dew-data').html(data.current_observation.dewpoint_c + ' C');
-                    // $('.pre-data').html(data.current_observation.pressure_mb + ' mb');
-                    // $('.uv-data').html(data.current_observation.UV);
-                    // $('.visi-data').html(data.current_observation.visibility_km + ' km');
-                    //
-                    // $('.winddir-data').html(data.current_observation.wind_dir);
-                    // $('.winddeg-data').html(data.current_observation.wind_degrees);
-                    // $('.windspk-data').html(data.current_observation.wind_kph + ' kph');
-                    // $('.windgustk-data').html(data.current_observation.wind_gust_kph + ' kph');
-                    //
-                    //
-                    //
-                    // $.each($('.forecastCard .title'), function(i, item) {
-                    //     $(this).html(data.forecast.txt_forecast.forecastday[i].title);
-                    // });
-                    //
-                    // $.each($('.forecastCard span.forecast'), function(i, item) {
-                    //     $(this).html(data.forecast.txt_forecast.forecastday[i].fcttext_metric);
-                    // });
-                    //
-                    // $.each($('.forecastCard span.chanceOfRain'), function(i, item) {
-                    //     $(this).html(data.forecast.txt_forecast.forecastday[i].pop + '%');
-                    // });
-                    //
-                    // var icon = 'assets/weather-icons/' + data.current_observation.icon + '.png';
-                    // $('img.w-icon').attr('src', icon);
+                    $('.city-name').html(data.city.name + ", " + data.city.country);
+                    for (var i = 0; i < data.list.length; i++) {
+                        $('.weather-data-wrapper').append(
+                            '<div class="card"><div class="date-time"><h1>Date : ' + data.list[i].dt_txt.split(" ", 1) + '</h1><h1>Time : ' + data.list[i].dt_txt.split(" ", 2)[1] + '</h1><h1>Temp : ' + data.list[i].main.temp + ' C</h1><h1>Min : ' + data.list[i].main.temp_min + ' C</h1><h1>Max : ' + data.list[i].main.temp_max + ' C</h1><h1>Pressure : ' + data.list[i].main.pressure + '</h1><h1>Sea Level : ' + data.list[i].main.sea_level + '</h1><h1>Ground Level : ' + data.list[i].main.grnd_level + '</h1><h1>Humidity : ' + data.list[i].main.humidity + '</h1><h1>Wind Speed : ' + data.list[i].wind.speed + '</h1><h1>Wind Deg : ' + data.list[i].wind.deg + '</h1><h1>Clouds : ' + data.list[i].clouds.all + '%</h1></div></div>');
+                    }
 
                     $('.input-page-wrapper').hide();
                     $('.weather-data-wrapper,.app-bar').show();

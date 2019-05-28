@@ -4,7 +4,6 @@
 @keyframes clicked
     0%, 100%
         transform: scale(1)
-
     50%
         transform: scale(0.8)
 
@@ -13,10 +12,7 @@
     padding: 0
     font-family: 'Roboto'
     cursor: default
-    -webkit-user-select: none
-    -moz-user-select: none
-    -ms-user-select: none
-    user-select: none
+    // user-select: none
 
 html
     background: linear-gradient(to bottom, #40C4FF, #058ADB)
@@ -24,14 +20,10 @@ html
 a
     text-decoration: none
 
-
-
-
 .input-page-wrapper
     height: calc(100vh - 48px)
     padding: 24px
     overflow: hidden
-    // display: none
     h1.app-title
         position: fixed
         font-size: 20px
@@ -104,7 +96,6 @@ a
                         fill: white
                 .btnClicked
                     animation: clicked 0.5s ease-in-out infinite
-
                 &:hover svg
                     box-shadow: inset 0 0 8px rgba(0,0,0,0.6)
 
@@ -127,7 +118,6 @@ a
     width: 100%
     height: 64px
     background: rgba(61, 193, 254, 0.9)
-    // box-shadow: $box-shadow-3dp
     padding: 12px
     box-sizing: border-box
     z-index: 1
@@ -151,89 +141,16 @@ a
         margin: 8px
 
 .weather-data-wrapper
-    width: 100%
-    max-width: 620px
-    min-height: calc(100vh - 104px)
+    // display: block
     text-align: center
-    margin: 20px auto
-    overflow: hidden
-    .data-card
-        width: 100%
-        max-width: 280px
-        border-radius: 2px
-        background: #fff
-        padding: 10px
-        margin: 10px
-        box-shadow: $box-shadow-3dp
-        box-sizing: border-box
+    .card
+        width: 300px
+        padding: 20px
+        border-radius: 4px
         display: inline-block
-        text-align: initial
-        overflow: hidden
-
-        .date-time
-            font-size: 13px
-            font-weight: 500
-            color: white
-        .group-1,.group-2
-            display: inline-block
-            .temp
-                font-size: 70px
-                font-weight: 300
-                color: white
-            .feels
-                font-size: 13px
-                font-weight: 500
-                color: white
-
-        .group-2
-            float: right
-            text-align: center
-            img
-                width: 80px
-                height: 80px
-
-            .weather
-                font-size: 13px
-                font-weight: 500
-                color: white
-        .group-3
-            margin-top: 2px
-            h1.property
-                font-size: 13px
-                font-weight: 500
-                color: #fff
-                margin: 4px 0
-                display: inline-block
-            h1.value
-                font-size: 13px
-                color: #fff
-                font-weight: 500
-                display: inline-block
-
-
-    // .second,.third,.forth,.fifth
-    .data-card:nth-child(3),
-    .data-card:nth-child(4)
-        .value
-            float: right
-
-    .data-card:nth-child(3),
-    .data-card:nth-child(4),
-    .data-card:nth-child(5),
-    .data-card:nth-child(6)
-        padding: 22px
-        h1.title
-            font-size: 15px
-            margin-bottom: 6px
-            display: inline-block
-            color: #1E88E5
-        h1.property,.value
-            font-size: 14px
-            font-weight: 500
-            margin: 2px 0
-            display: inline-block
-        .value
-            color: rgba(#000,0.5)
-        hr
-            margin: 16px 0
-            border: 0.5px solid rgba(0,0,0,0.2)
+        text-align: left
+        background: #fff
+        margin: 10px
+        box-shadow: 0 2px 6px rgba(#000,.3)
+        h1
+            font-size: 16px
