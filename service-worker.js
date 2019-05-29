@@ -16,23 +16,15 @@ const RUNTIME = 'runtime';
 
 const PRECACHE_URLS = [
     '/',
-    // html file
     'index.html',
-    // html manifest pointer
     'index.html?homescreen=1',
     '?homescreen=1',
-    // css file
     'styles/index.min.css',
-    // jquery file if you are using jquery in your site
     'functions/jquery.min.js',
-    // javascript filter
     'functions/index.js',
-    // manifest file
     'functions/manifest.json',
-    // assets
     'assets/512x512.png',
     'assets/favicon.ico'
-
 ];
 
 self.addEventListener('install', event => {

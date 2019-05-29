@@ -11,9 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#40C4FF" />
     <link rel="manifest" href="functions/manifest.json">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="functions/index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans:500,700" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.min.css">
     <link href="assets/favicon.ico" rel="icon" sizes="192x192">
     <link rel="shortcut icon" href="assets/favicon.ico">
@@ -21,12 +19,10 @@
 </head>
 
 <body>
-    <!-- -------------------------data-input-page-------------------- -->
+    <!-- data-input-page -->
     <div class="input-page-wrapper">
-
         <img src="assets/512x512.png" alt="all-logo" class="app-logo">
         <h1 class="app-title">Umbrella</h1>
-
         <div class="input-data-wrapper">
             <lable for="city-search-input" class="input-title">Enter Location</lable>
             <input id="city-search-input" class="search" placeholder="Search City, Country" type="text">
@@ -44,12 +40,13 @@
                         <path fill="#000000" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
                     </svg>
                     <span class="btn-title">FIND ME</span>
-                </button></div>
-
+                </button>
+            </div>
         </div>
     </div>
-    <!-- --------------------------weather-data---------------------------- -->
-    <!-- -----------appBar------------ -->
+
+    <!-- weather-data -->
+    <!-- appBar -->
     <div class="app-bar" style="display:none">
         <svg class="back-btn" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="#000000" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
@@ -59,38 +56,16 @@
             <path fill="#000000" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
         </svg>
     </div>
-    <!-- --------weatherData------------- -->
-    <div class="weather-data-wrapper" style="display:none">
-        <!-- <div class="card">
-            <div class="date-time"></div>
-            <div class="temp"></div>
-            <div class="temp-min"></div>
-            <div class="temp-max"></div>
-            <div class="pressure"></div>
-            <div class="sea-level"></div>
-            <div class="ground-level"></div>
-            <div class="humidity"></div>
-            <br>
-            <div class="wind-speed"></div>
-            <div class="wind-deg"></div>
-            <br>
-            <div class="clouds"></div>
 
-        </div> -->
-        <!-- </div> -->
+    <!-- weatherData -->
+    <div class="weather-data-wrapper" style="display:none"></div>
 </body>
 
-<script src="service-worker.js">
-</script>
+<!-- scripts -->
+<script src="functions/jquery.min.js"></script>
+<script src="functions/index.js"></script>
 
-<!-- <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-            .register('service-worker.js')
-            .then(function() {
-                console.log("Service-Worker-Registered");
-            });
-    }
-</script> -->
+<!-- service worker -->
+<script src="service-worker.js"></script>
 
 </html>
